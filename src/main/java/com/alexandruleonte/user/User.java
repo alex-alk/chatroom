@@ -13,7 +13,7 @@ public class User {
     @GeneratedValue()
     private Long id;
 
-    @NotNull
+    @NotNull(message = "{chatroom.constraints.username.NotNull.message}")
     @Size(min = 4, max = 255)
     private String username;
 
@@ -23,7 +23,7 @@ public class User {
 
     @NotNull
     @Size(min = 8, max = 255)
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9]).*$")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9]).*$", message = "{chatroom.constraints.password.Pattern.message}")
     private String password;
 
     public String getUsername() {
