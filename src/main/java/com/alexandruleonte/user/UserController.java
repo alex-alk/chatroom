@@ -27,6 +27,7 @@ public class UserController {
         return new GenericResponse("User saved");
     }
 
+    // for model validation errors
     @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     ApiError handleValidationException(MethodArgumentNotValidException exception, HttpServletRequest request) {

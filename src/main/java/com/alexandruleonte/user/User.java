@@ -6,7 +6,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "\"user\"", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class User {
 
     @Id
@@ -15,6 +15,7 @@ public class User {
 
     @NotNull(message = "{chatroom.constraints.username.NotNull.message}")
     @Size(min = 4, max = 255)
+    @UniqueUsername
     private String username;
 
     @NotNull
